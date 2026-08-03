@@ -15,10 +15,12 @@ import '../../widgets/avatar.dart';
 class StickerPickerDialog extends StatefulWidget {
   final Room room;
   final void Function(ImagePackImageContent) onSelected;
+  final Color? backgroundColor;
 
   const StickerPickerDialog({
     required this.onSelected,
     required this.room,
+    this.backgroundColor,
     super.key,
   });
 
@@ -37,7 +39,7 @@ class StickerPickerDialogState extends State<StickerPickerDialog> {
     final packSlugs = stickerPacks.keys.toList();
 
     return Material(
-      color: theme.colorScheme.onInverseSurface,
+      color: widget.backgroundColor ?? theme.colorScheme.onInverseSurface,
       child: SafeArea(
         top: false,
         child: CustomScrollView(
